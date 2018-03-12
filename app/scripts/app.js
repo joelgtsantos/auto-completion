@@ -3,7 +3,8 @@
 /**
  * @ngdoc overview
  * @name autoCompletionApp
- * @description
+ * @The app only have one state which is the 'Main' who has set MainCtrl 
+ * and don't need injection in other place
  * # autoCompletionApp
  *
  * Main module of the application.
@@ -19,6 +20,7 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
+      //Redirect everything to the root
       .otherwise({
         redirectTo: '/'
       });
