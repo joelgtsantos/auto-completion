@@ -10,7 +10,7 @@
 angular.module('autoCompletionApp')
   .controller('MainCtrl', function ($scope, searchService, $timeout) {
 
-    $scope.searchBox = "";
+    $scope.searchBox = '';
     $scope.results = [];
     $scope.delay = null;
     $scope.iSelected = -1;
@@ -19,7 +19,7 @@ angular.module('autoCompletionApp')
 	$scope.search = function(){
 
 		//If the word to looking for is different of null or empty
-		if($scope.searchWord != "" && $scope.searchWord !== null){
+		if($scope.searchWord !== '' && $scope.searchWord !== null){
 
 			//If the method that calls to search, is active then is stopped first
 			if ($scope.delay) {
@@ -40,7 +40,7 @@ angular.module('autoCompletionApp')
 			//Clean the results	
 			$scope.results = [];
 		}
-	}
+	};
 
 	/*
 	*	@parameter word = string
@@ -51,7 +51,7 @@ angular.module('autoCompletionApp')
 		.then(function(data) {
 			$scope.showResults(data);
 		});
-	}
+	};
 
 	/*
 	*	@parameter data = array
@@ -64,7 +64,7 @@ angular.module('autoCompletionApp')
 		for (var i = 0; i < $scope.results.length; i++){
 			$scope.results[i].active = false;
 		}
-	}
+	};
 
 
 	/*
@@ -90,7 +90,7 @@ angular.module('autoCompletionApp')
 				$scope.highlightResult($scope.iSelected);	
 			}
 		}
-	}
+	};
 
 
 	/*
@@ -100,11 +100,12 @@ angular.module('autoCompletionApp')
 	*/
 	$scope.highlightResult = function(j){
 		for(var i = 0; i < $scope.results.length; i++){
-			if(i == j)
+			if(i === j){
 				$scope.results[i].active = true;
-			else
+			}else{
 				$scope.results[i].active = false;
+			}
 		}	
-	}
+	};
 
   });
